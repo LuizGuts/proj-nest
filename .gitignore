@@ -39,16 +39,8 @@ lerna-debug.log*
 .env
 .env.development
 .env.test
-.env.development.local
-.env.test.local
 .env.production.local
 .env.local
-tsconfig.tsbuildinfo
-
-# Docker
-.docker/*
-!.docker/entrypoint.sh
-!.docker/postgres/Dockerfile
 
 # temp directory
 .temp
