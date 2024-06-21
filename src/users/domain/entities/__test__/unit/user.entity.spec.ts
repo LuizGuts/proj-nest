@@ -1,20 +1,20 @@
-import { UserEntity, UserProps } from '../../user.entity' 
+import { UserEntity, UserProps } from '../../user.entity'
 import { before } from 'node:test'
 import { UserDataBuilder } from '@/users/domain/testing/helpers/user-data-builder'
 
-describe('UserEntity Unit Test' , () => {
+describe('UserEntity Unit Test', () => {
     let props: UserProps
     let sut: UserEntity
     beforeEach(() => {
         props = UserDataBuilder()
-        sut = new UserEntity (props)
+        sut = new UserEntity(props)
     })
 
     it('Constructor method', () => {
         expect(sut.props.name).toEqual(props.name)
         expect(sut.props.email).toEqual(props.email)
         expect(sut.props.password).toEqual(props.password)
-        expect(sut.props.CreateAt).toBeInstanceOf(Date)
+        expect(sut.props.createdAt).toBeInstanceOf(Date)
     })
 
     it('Getter of name field', () => {
@@ -27,7 +27,7 @@ describe('UserEntity Unit Test' , () => {
         sut['name'] = 'new name'
         expect(sut.props.name).toEqual('new name')
     })
-    
+
     it('Getter of email field', () => {
         expect(sut.props.email).toBeDefined()
         expect(typeof sut.props.email).toBe('string')
@@ -46,12 +46,12 @@ describe('UserEntity Unit Test' , () => {
     })
 
     it('Getter of CreateAt field', () => {
-        expect(sut.props.CreateAt).toBeDefined()
-        expect(sut.props.CreateAt).toBeInstanceOf(Date)
+        expect(sut.props.createdAt).toBeDefined()
+        expect(sut.props.createdAt).toBeInstanceOf(Date)
     })
 
     it('Should update a user - name', () => {
-        sut.updateName('new name')
+        sut.update('new name')
         expect(sut.props.name).toEqual('new name')
     })
 
